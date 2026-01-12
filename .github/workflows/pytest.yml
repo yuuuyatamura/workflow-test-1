@@ -33,4 +33,11 @@ jobs:
 
       - name: Print DB_USER
         run: echo "DB_USER -> ${DB_USER}"
+
+      - name: Get Time
+        id: get_time
+        run: echo "time=$(date)" >> $GETHUB_OUTPUT
+
+      - name: Print gethub output
+        run: echo "1つ前のstepの出力は${{steps.get_time.outputs.time}}"です
         

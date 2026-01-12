@@ -27,6 +27,10 @@ jobs:
       - name: Run pytest
         run: python -m pytest -q
 
+      - name: Failure Log
+        if: failure()
+        run: echo "1つ前のstepは失敗しました"
+
       - name: Print DB_USER
         run: echo "DB_USER -> ${DB_USER}"
         
